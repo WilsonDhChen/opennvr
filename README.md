@@ -65,7 +65,6 @@ RTMP rtmp://127.0.0.1:2935/gb28181/chid
   
 访问地址示例：  
   
-live是RTMP推送指定的App  
 HLS http://127.0.0.1:280/gb28181/chid.m3u8 (H265 support)  
 RTMP rtmp://127.0.0.1/gb28181/chid  
 RTSP rtsp://127.0.0.1/gb28181/chid (H265 support)  
