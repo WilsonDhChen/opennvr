@@ -22,7 +22,7 @@ QQ交流群：737375186
 
 #### 安装教程
 
-1. xxxx
+1. 系统要求 Centos 7, 需要安装 MariaDB apache php5.6 系统环境一键配置RPM下载链接：https://pan.baidu.com/s/1-LSsyKUDhBZXQhr9_JHXqg 密码：vyft   下载解压执行 ./env_install
 2. xxxx
 3. xxxx
 
