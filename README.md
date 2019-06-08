@@ -1,4 +1,4 @@
-# opennvr
+# OpenNVR
 
 #### 介绍
 OpenNVR简介
