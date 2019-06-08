@@ -4,7 +4,7 @@ CUR_DIR=$(pwd)
 #yum install yum-plugin-downloadonly
 
 cd "$CUR_DIR/rpms"
-yum -y --force localinstall *.rpm 
+yum -y  localinstall *.rpm 
 #yum localinstall --downloadonly --downloaddir=./ *.rpm 
 #exit 0
 

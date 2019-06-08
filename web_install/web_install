@@ -25,6 +25,7 @@ echo "/*******************************************/"
 
 mkdir -p /var/www
 cp -rvf $CUR_DIR/html /var/www/
+chmod 777 -R /var/www/html
 cp -f $CUR_DIR/htaccess /var/www/html/.htaccess
 
 
