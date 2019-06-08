@@ -24,10 +24,7 @@ echo "/********install web ****/"
 echo "/*******************************************/"
 
 mkdir -p /var/www
-cp -f $CUR_DIR/html.tgz /var/www/
-cd /var/www/
-tar -zxvf ./html.tgz
-cd $CUR_DIR
+cp -rvf $CUR_DIR/html /var/www/
 cp -f $CUR_DIR/htaccess /var/www/html/.htaccess
 
 

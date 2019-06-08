@@ -32,7 +32,7 @@ return array(
 		
 		/* 数据库配置 */
 		'DB_TYPE'				=> 'mysqli',				// 数据库类型
-		'DB_HOST'               => 'localhost', 			// 服务器地址
+		'DB_HOST'               => '127.0.0.1', 			// 服务器地址
 		'DB_NAME'               => 'nvr',    		// 数据库名
 		'DB_PREFIX'				=> 'ly_',					// 表前缀
 		'DB_USER'               => 'root',  			//用户名
@@ -43,8 +43,8 @@ return array(
 									'db_type'  => 'mysql',
 									'db_user'  => 'root',
 									'db_pwd'   => 'QWE123@#rty',
-									'db_host'  => 'localhost',
-									'db_name'  => 'videorecord'
+									'db_host'  => '127.0.0.1',
+									'db_name'  => 'nvr_default'
 		),
 
 		
