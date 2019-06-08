@@ -15,7 +15,10 @@ OpenNVR简介
 支持二次开发提供丰富的API调用，为第三方应用提供可靠的视频源。
 
 QQ交流群：737375186
+github   https://github.com/WilsonDhChen/opennvr  
+国内下载   https://gitee.com/open-nvr/opennvr  
 
+  
 #### 软件架构
 1） 支持多CPU多核心，采用并行流水线架构(CPU核心越多流水线级别越多，高并发60 FPS不卡顿)，多nb的硬件都能完全发挥性能。  
 2） 7x24 全天候稳定运行。  
