@@ -13,7 +13,18 @@ export MALLOC_ARENA_MAX=1
 ulimit -n 50000
 chmod 777 ./transcode
 chmod 777 ./transcodesrv
-tcptest 127.0.0.1:3306  20
+
+echo "wait for MySQL start"
+STATUS=$(tcptest 127.0.0.1:3306  20)
+if [ "$STATUS" == "OK" ];then
+echo "MySQL started"
+sleep 1
+else
+echo "MySQL not started, exited"
+exit 1
+fi
+
+
 while [ 1 ]
 do
     transcodesrv $1
