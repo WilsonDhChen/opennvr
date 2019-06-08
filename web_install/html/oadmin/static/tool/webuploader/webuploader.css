@@ -1,0 +1,33 @@
+.webuploader-container {
+	position: relative;
+}
+.webuploader-element-invisible {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+.webuploader-pick {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
+	overflow: hidden;
+}
+.webuploader-pick-hover {
+	background: #00a2d4;
+}
+
+.webuploader-pick-disable {
+	opacity: 0.6;
+	pointer-events:none;
+}
+.webuploader-container {
+	position: relative; float:left;
+	
+}
+.upload-btn-box{ width:248px; height:140px; border:2px dashed  #ddd; text-align:center; cursor:pointer; position:relative;}
+.upload-btn-box .upload-btn{ height:140px; width:248px;font-size: 30px;color:#ddd;}
+.upload-btn-box .upload-btn i{ font-family: Verdana;font-size: 50px; font-weight: bold; display:block; padding-top:10px; }
+.upload-show .preview{ width:248px; height:140px; margin-left:15px;}
+.upload-btn-box .pic-show{ position:absolute; width:100%; height:100%; top:0px; float:left;}
+.upload-btn-box .webuploader-pick{ background:#fff;}

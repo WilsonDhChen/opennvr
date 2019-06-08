@@ -1,0 +1,313 @@
+html,body{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+#OA_Tooler{
+	height:40px;		
+}
+#OA_Mainer{
+	position:fixed;
+	right:0;
+	top:60px;
+	bottom:0;
+	left:0px;	
+}
+.oaui-toper{
+	overflow:hidden;
+}
+
+.oaui-logo{
+    margin-top:10px;
+	width:160px;
+	float:left;
+}
+.oaui-logo img{
+	width:160px;
+	display:block;
+
+}
+
+.oaui-taskbar{
+	float:left;
+	overflow:hidden;
+}
+
+.oaui-taskbar .taskbar-wrap{
+    height: 60px;
+    width:1000%;	
+	overflow:hidden;	
+}
+
+.oaui-taskbar .tasktab-item{
+	float:left;
+	display:inline-block;
+	height:38px;
+	margin-right:1px;
+	cursor:pointer;
+    padding:11px 30px 11px 45px;
+    position:relative;
+}
+
+.oaui-taskbar .tasktab-item .tasktab-icon{
+	display:inline-block;
+	vertical-align:middle;
+    position:absolute;
+    width:20px;
+    height:20px;
+    left:20px;
+    top:19px;
+    font-size:20px;
+}
+
+.oaui-taskbar .tasktab-item-active {
+    background:#282c35;
+    color:#387AFF;
+}
+
+
+.oaui-taskbar .tasktab-item .tasktab-text{
+	display:inline-block;
+	vertical-align:middle;
+	line-height:38px;
+	font-size:14px;
+	padding:0px;
+	overflow:hidden;
+}
+
+.oaui-taskbar .tasktab-item .tasktab-close{
+    position:absolute;
+    right:10px;
+    top:20px;
+}
+
+
+.oaui-loading{
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:161px;
+	right:0;
+	z-index:10;	
+	display:none;
+}
+
+.oaui-loading div{
+    margin: 10% auto 0;
+    width: 400px;
+    height: 80px;
+    padding: 180px 10px 10px 10px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 6px;
+	background-repeat:no-repeat;
+	background-position:center 60px;
+ }
+.oaui-loading .loading-process{
+	display:inline-block;
+	width:21px;
+	text-align:left;
+}
+
+.pagetab-sidebar{
+	width:160px;
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	z-index:6;
+}
+
+.sidetab-item{
+	padding:20px 0;
+	cursor:pointer;
+	text-align:center;
+	position:relative;
+}
+
+.sidetab-item-navi{
+	cursor:default;
+}
+.sidetab-item-navi li{
+	cursor:pointer;
+}
+
+.sidetab-item .site-icon{
+	display:block;
+	margin:0 auto;
+    font-size:40px;
+}
+.sidetab-item .site-name{
+    margin-top:10px;
+	font-size:14px;
+	display:block;
+}
+
+.sidetab-item dd{
+	padding-left:60px;
+	min-height:87px;
+	position:absolute;
+	left:102px;
+	top:0px;
+	background-repeat:no-repeat;
+	background-position:20px 24px;
+}
+.sidetab-item:hover dd{
+}
+.sidetab-item .side-submenu{
+	display:none;
+	width:120px;
+	min-height:85px;
+}
+.sidetab-item:hover .side-submenu{
+}
+
+.sidetab-item:hover .side-submenu li{
+	line-height:26px;
+	height:26px;
+}
+
+
+.pagetab-pagebar,.pagetab-desktop{
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:160px;
+	right:0;
+	z-index:5;
+}
+
+.pagetab-pagebar iframe{
+	width: 100%;
+    height: 100%;
+}
+.pagetab-desktop{
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.pagetab-desktop ul{
+	padding:10px;
+	overflow:hidden;
+}
+.pagetab-desktop .app-item{
+	float:left;
+	cursor:pointer;
+	margin:15px;
+	border-radius:6px;
+	
+}
+.pagetab-desktop .app-inner{
+	width:220px;
+	height:230px;
+	display:block;
+	border-radius:6px;
+	text-align:center;
+	font-size:14px;	
+}
+.pagetab-desktop .app-icon{
+	display:block;
+    border-radius:300px;
+    width:130px;
+    height:130px;
+    background:#ddd;
+    position:relative;
+    margin:30px auto 0;
+}
+.pagetab-desktop .app-icon .icon{
+    top:50%;
+    position:absolute;
+	display:block;
+    font-size:70px;
+    color:#fff;
+    margin-top:-35px;
+    left:20px;
+}
+.pagetab-desktop ul li:nth-child(4n+1) .app-icon {
+    background:#92B6FF;
+}
+.pagetab-desktop ul li:nth-child(4n+2) .app-icon {
+    background:#FA8564;
+}
+.pagetab-desktop ul li:nth-child(4n+3) .app-icon {
+    background:#FFC100;
+}
+.pagetab-desktop ul li:nth-child(4n+4) .app-icon {
+    background:#82ad5a;
+}
+
+.pagetab-desktop .app-name{
+	margin-top:20px;
+    font-size:20px;
+    line-height:30px;
+	display:block;
+}
+
+.pagetab-nothing .app-tips{
+	width:80%;
+	margin:10% auto;
+	text-align:center;
+}
+.pagetab-nothing h2{
+	font-size:22px;
+	margin-bottom:12px;
+}
+
+.pagetab-nothing .app-tips-face{
+	text-align:center;
+	font-size:80px;
+}
+.pagetab-nothing button{
+	color:#666;
+	line-height:24px;
+	padding:4px 10px;
+}
+
+
+/* OAUI ContextMenu icons*/
+
+.oaui-contextmenu-icon{	background-image:url(../image/contextmenu_icon_oaui.png);}
+.oaui-contextmenu-icon-close{ background-position:0 0;}
+.oaui-contextmenu-icon-refresh{background-position:-140px 0;}
+.oaui-contextmenu-icon-restore{background-position:-168px 0;}
+.oaui-contextmenu-icon-close-other{background-position:-84px 0;}
+.oaui-contextmenu-icon-close-left{background-position:-56px 0;}
+.oaui-contextmenu-icon-close-right{background-position:-196px 0;}
+.oaui-contextmenu-icon-close-all{background-position:-28px 0;}
+.oaui-contextmenu-icon-desktop{background-position:-112px 0;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

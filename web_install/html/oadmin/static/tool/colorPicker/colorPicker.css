@@ -1,0 +1,17 @@
+.colorPicker{
+	background-color: #ffffff;
+	background-image: url(images/picker_ico.jpg);
+	background-repeat: no-repeat;
+	background-position: 100% 50%;
+	height:18px;
+	line-height:18px;
+    width:90px;
+	border-color:#cccccc;
+	border-style:solid;
+	border-width:1px;
+	font-size: 12px;
+	text-indent:1px;
+	font-family:Verdana;
+	cursor:pointer;
+	color: #336699;
+}

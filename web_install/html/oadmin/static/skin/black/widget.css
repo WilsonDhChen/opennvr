@@ -1,0 +1,138 @@
+/* OAdmin Skin : Black */
+
+/* Button Common */
+.oaui-button-common{
+	color:#555;
+	background:#bbb;
+	background:      -o-linear-gradient(top,#eee,#bbb);
+	background:     -ms-linear-gradient(top,#eee,#bbb);
+	background:    -moz-linear-gradient(top,#eee,#bbb);
+	background: -webkit-linear-gradient(top,#eee,#bbb);
+	background: 		linear-gradient(top,#eee,#bbb);
+	border:1px solid #aaa;
+	box-shadow:inset 0 0 2px #fff;
+	
+}
+.oaui-button-common:hover{
+	background:#aaa;
+	background:      -o-linear-gradient(top,#ddd,#aaa);
+	background:     -ms-linear-gradient(top,#ddd,#aaa);
+	background:    -moz-linear-gradient(top,#ddd,#aaa);
+	background: -webkit-linear-gradient(top,#ddd,#aaa);
+	background: 		linear-gradient(top,#ddd,#aaa);
+	border:1px solid #999;
+}
+
+
+/* Button Submit */
+.oaui-button-submit{
+	color:#fff;
+	background:#323232;
+	background:      -o-linear-gradient(top,#858585,#323232);
+	background:     -ms-linear-gradient(top,#858585,#323232);
+	background:    -moz-linear-gradient(top,#858585,#323232);
+	background: -webkit-linear-gradient(top,#858585,#323232);
+	background: 		linear-gradient(top,#858585,#323232);
+	border:1px solid #333;
+	box-shadow:inset 0 0 2px #fff;
+	
+}
+
+.oaui-button-submit:hover{
+	color:#fff;
+	background:#020202;
+	background:      -o-linear-gradient(top,#666,#020202);
+	background:     -ms-linear-gradient(top,#666,#020202);
+	background:    -moz-linear-gradient(top,#666,#020202);
+	background: -webkit-linear-gradient(top,#666,#020202);
+	background: 		linear-gradient(top,#666,#020202);
+	border:1px solid #000;
+}
+
+.oaui-button-disabled {
+     background:#ddd;
+     background:      -o-linear-gradient(top,#ccc,#ddd);
+     background:     -ms-linear-gradient(top,#ccc,#ddd);
+     background:    -moz-linear-gradient(top,#ccc,#ddd);
+     background: -webkit-linear-gradient(top,#ccc,#ddd);
+     background: 		linear-gradient(top,#ccc,#ddd);
+     color: #999;
+     border:1px solid #aaa;
+}
+
+.oaui-button-disabled:hover {
+    background:#ddd;
+    background:      -o-linear-gradient(top,#ccc,#ddd);
+    background:     -ms-linear-gradient(top,#ccc,#ddd);
+    background:    -moz-linear-gradient(top,#ccc,#ddd);
+    background: -webkit-linear-gradient(top,#ccc,#ddd);
+    background: 		linear-gradient(top,#ccc,#ddd);
+    color: #999;
+    border:1px solid #aaa;
+}
+
+/* form */
+.oaui-form td{ 
+	color:#333;
+}
+
+/* input */
+.oaui-input-tips{
+	 color:#999;
+}
+.oaui-input-text{
+    color: #333;
+    border: 1px solid #d0d0d0;
+}
+.oaui-input-text:focus{
+	border-color: #aaa #ccc #ccc #aaa;
+}
+.oaui-input-text.Wdate{
+    color: #333;
+    border: 1px solid #d0d0d0;	
+}
+
+.oaui-textarea{
+	color: #333;
+	border: 1px solid #d0d0d0;
+}
+.oaui-textarea:focus{
+	border-color: #aaa #ccc #ccc #aaa;
+}
+
+.oaui-select{
+    color: #333;
+    border: 1px solid #d0d0d0;
+}
+
+.oaui-select:focus{
+	border-color: #aaa #ccc #ccc #aaa;
+}
+
+
+.scrollbar::-webkit-scrollbar-track{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.scrollbar::-webkit-scrollbar{
+	background-color: #F5F5F5;
+}
+
+.scrollbar::-webkit-scrollbar-thumb{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+

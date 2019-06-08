@@ -1,0 +1,87 @@
+.login-page {
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:url(../image/banner_denglu.png) center center no-repeat;
+}
+
+.login-box {
+    width:540px;
+    height:420px;
+    overflow:hidden;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-270px;
+    margin-top:-210px;
+    background:#fff;
+    box-shadow:0 16px 51px 16px rgba(14, 5, 10, 0.3);
+    border-radius:18px;
+}
+
+.login-box .login-title {
+    font-size:36px;
+    line-height:40px;
+    padding:10px 0;
+    text-align:center;
+    color:#387AFF;
+    margin-top:40px;
+}
+
+.login-box .login-form {
+    margin:0px 30px;
+}
+
+.login-box .login-form .login-input {
+    width:300px;
+    padding-left:50px;
+    padding-right:20px;
+    height:48px;
+    margin:30px auto;
+    background:#f6f6f6;
+    border-radius:6px;
+    position:relative;
+}
+
+.login-box .login-form .login-input input {
+    width:100%;
+    height:100%;
+    border:none;
+    font-size:16px;
+    color:#666;
+    background:#f6f6f6;
+    overflow:hidden;
+}
+
+input:-webkit-autofill {
+    box-shadow:0 0 0px 1000px #f6f6f6 inset;
+    color:#666;
+}
+
+.login-box .login-form .login-input .icon {
+    position:absolute;
+    left:10px;
+    top:15px;
+    font-size:20px;
+    color:#387AFF;
+}
+
+.login-box .login-form .login-button {
+    
+}
+
+.login-box .login-form .login-button button {
+    width:100%;
+    height:100%;
+    border:none;
+    background:#387AFF;
+    color:#fff;
+    font-size:16px;
+    margin:0;
+    padding:0;
+    position:absolute;
+    left:0;
+    top:0;
+}

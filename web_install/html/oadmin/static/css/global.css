@@ -1,0 +1,61 @@
+/**
+ * OAdmin global CSS
+ * @date 2016-08-12
+ */
+ 
+ /* ========= reset ========= */  
+body,p,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,fieldset,legend,input,select,textarea,button,th,td,pre {margin:0;padding:0;}
+body,button,input,select,textarea{font:12px/1.5 "Microsoft Yahei",Verdana,Tahoma;}
+ul,dl,ol {list-style:none;}
+h1 { font-size: 18px; }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+h4, h5, h6 { font-size: 100%; }
+address, cite, dfn, em, var,i { font-style: normal; }
+a{ text-decoration: none; }
+a.td-u:hover{ text-decoration:underline;}
+a img{ border:0;}
+button, input, select, textarea,label{font-size: 100%;vertical-align:middle;outline:none;}
+input[type='submit'],input[type='button'],button{cursor:pointer;} 
+textarea{resize:none; overflow:auto;}
+select{ padding:2px;}
+table {border-collapse: collapse;border-spacing: 0;}
+
+
+/* ========= common class ========= */  
+.dp-n{ display:none;}
+.dp-b{ display:block;}
+.dp-ib{ display:inline-block;}
+.f-l{ float:left}
+.f-r{ float:right}
+.pt-r{ position:relative;}
+.pt-a{ position:absolute;}
+.ta-l{ text-align:left;}
+.ta-c{ text-align:center;}
+.ta-r{ text-align:right;}
+.va-m{ vertical-align:middle;}
+.of-h{ overflow:hidden;}
+.fw-b{ font-weight:bold;}
+.fw-n{ font-weight:normal;}
+.fs-12{ font-size:12px;}
+.fs-14{ font-size:14px;}
+.fs-16{ font-size:16px;}
+.fs-18{ font-size:18px;}
+.fs-20{ font-size:20px;}
+.fs-22{ font-size:22px;}
+.ff-s{ font-family:"simsun";}
+.ff-y{ font-family:"Microsoft Yahei";}
+.ff-v{ font-family:Verdana;}
+.lh-20{ line-height:20px;}
+.lh-22{ line-height:22px;}
+.lh-24{ line-height:24px;}
+.bgc-t{background-color:transparent;}
+.bgc-w{background-color:white;}
+.cf-o{overflow:hidden;_zoom:1;}
+.cf-a:after{display:block;clear:both;content:"";visibility:hidden;height:0;} 
+.cf-a{*zoom:1;}
+.cf-c{clear:both; line-height:0; font-size:0;}
+.c-p{cursor:pointer}
+.b-0{ border:0;}
+.ol-n{outline:none;}
+.to-e{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}

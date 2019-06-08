@@ -1,0 +1,40 @@
+*{margin:0 ;padding: 0}
+.mean{width: 100%;border:1px solid #ccc;min-width: 1626px;}
+.head{width: 100%;height: 40px;background: #efefef;color: #000;padding-left: 20px;line-height: 40px;font-size: 18px;border-bottom: 1px solid #ccc;}
+.contnt{width: 100%;height: 100%;padding: 20px;}
+.cu_in{position: relative;margin-top: 30px;}
+.current{position: relative;display: inline-block;}
+.current span{color: red}
+.dropdown{position: absolute;height: 35px;left: 70px;top:-7px;border: 1px solid #ccc;width: 250px;cursor: pointer;border-radius: 3px;}
+.dropdown .carat{position: absolute;right: 12px;top: 50%;margin-top: -4px;border: 6px solid transparent;border-top: 8px solid #000;}
+.dropdown.open .carat{margin-top: -10px;border-top: 6px solid transparent;border-bottom: 8px solid #000;}
+.dropdown .old{position: absolute;left: 0;top: 0;height: 0;width: 0;overflow: hidden;}
+.dropdown .selected,.dropdown li{display: block;font-size: 18px;line-height: 1;color: #000;padding: 9px 12px;overflow: hidden;white-space: nowrap;}
+.dropdown div{position: absolute;height: 0;left: -1px;right: -1px;top: 100%;margin-top: 1px;background: #fff;border: 1px solid #ccc;border-top: 1px solid #eee;border-radius: 0 0 3px 3px;overflow: hidden;opacity: 0;}
+.dropdown.open div{opacity: 1;z-index: 2;}
+.dropdown li.focus{background: #fff;position: relative;z-index: 3;color: #000;}
+.tab_con{  width: 96%;height: 500px; margin-top: 50px;position: relative;margin-bottom: 50px;}
+.con1{ width: 20%; height: 500px;border: 1px solid #ccc;display: inline-block;position: absolute;left: 0;}
+.con1_head{width: 100%;height: 40px;background: #ccc;position: relative;}
+.con1_add{position: absolute;right: 20%;padding-top: 2%;}
+.con1_freshen{position: absolute;right: 7%;padding-top: 2%;}
+.left{padding: 20px;}
+.con2{ width: 30%; height: 500px;border: 1px solid #ccc;display: inline-block;position: absolute;left: 23%;min-width: 476px;}
+.con2_puter{position: absolute;left: 3%;top: 2%;}
+.con2_head p{ display: inline-block;height: 30px;position: absolute;left: 15%;}
+.con2_head{width: 100%;height: 40px;background: #ccc;line-height: 40px;}
+.con2_left{position: absolute;width: 34.8%;height: 40px;font-size:14px;background: #efefef;border-right: 1px solid #ccc;border-bottom: 1px solid #ccc;text-align: center;line-height: 40px;}
+.con2_left img{position: absolute;left: 10%;top: 30%;}
+.con2_right{position: absolute;left:35%;width: 65%;height: 40px;font-size:14px;background: #efefef;border-bottom: 1px solid #ccc;text-align: center;line-height: 40px;}
+.con2_right img{position: absolute;left: 4%;top: 25%;}
+.con3{ width: 40%; height: 500px;border: 1px solid #ccc;display: inline-block;position: absolute;left: 56%;min-width: 400px;}
+.con3_puter{position: absolute;left: 3%;top: 2%;}
+.con3_head p{ display: inline-block;height: 30px;position: absolute;left: 15%;}
+.con3_head{width: 100%;height: 40px;background: #ccc;line-height: 40px;}
+.con3_left{position: absolute;width: 34.8%;height: 40px;font-size:14px;background: #efefef;border-right: 1px solid #ccc;border-bottom: 1px solid #ccc;text-align: center;line-height: 40px;}
+.con3_left img{position: absolute;left: 10%;top: 30%;}
+.con3_right{position: absolute;left:35%;width: 65%;height: 40px;font-size:14px;background: #efefef;border-bottom: 1px solid #ccc;text-align: center;line-height: 40px;}
+.con3_right img{position: absolute;left: 4%;top: 25%;}
+table{width:100%;text-overflow:ellipsis; white-space:nowrap;text-align: center;border-spacing:0;border-collapse:collapse}
+table tr td:nth-child(1){width: 30px;}
+table tr td:nth-child(2){width: 30px;}

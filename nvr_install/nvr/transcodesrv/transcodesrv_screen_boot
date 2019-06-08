@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd /opt/nvr/transcodesrv/
+
+screen -dmS transcodesrv -s ./transcodesrv_sh_boot
+

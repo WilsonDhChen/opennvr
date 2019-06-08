@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd /opt/nvr/gb28181
+
+screen -dmS gb28181 -s ./gb28181_sh_boot
+

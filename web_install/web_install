@@ -1,0 +1,37 @@
+#!/usr/bin/sh
+CUR_DIR=$(pwd)
+
+
+echo ""
+echo "/*******************************************/"
+echo "/********import nvr.sql ****/"
+echo "/*******************************************/"
+mysql < ./nvr.sql
+
+echo ""
+echo "/*******************************************/"
+echo "/********set MySQL password QWE123@#rty ****/"
+echo "/*******************************************/"
+mysqladmin -u root password "QWE123@#rty"
+
+#管理系统修改数据库密码
+#/oadmin/Conf/config.php
+
+
+echo ""
+echo "/*******************************************/"
+echo "/********install web ****/"
+echo "/*******************************************/"
+
+mkdir -p /var/www
+cp -f $CUR_DIR/html.tgz /var/www/
+cd /var/www/
+tar -zxvf ./html.tgz
+cd $CUR_DIR
+cp -f $CUR_DIR/htaccess /var/www/html/.htaccess
+
+
+
+
+
+

@@ -1,0 +1,125 @@
+#!/usr/bin/sh
+CUR_DIR=$(pwd)
+
+#yum install yum-plugin-downloadonly
+
+cd "$CUR_DIR/rpms"
+yum -y --force localinstall *.rpm 
+#yum localinstall --downloadonly --downloaddir=./ *.rpm 
+#exit 0
+
+echo ""
+echo "/*******************************************/"
+echo "/********remove apache welcome conf*********/"
+echo "/*******************************************/"
+echo "rm -rf /etc/httpd/conf.d/welcome.conf"
+rm -rf /etc/httpd/conf.d/welcome.conf
+
+echo ""
+echo "/*******************************************/"
+echo "/********enable apache rewrite**************/"
+echo "/*******************************************/"
+echo "cp -f $CUR_DIR/httpd.conf /etc/httpd/conf/httpd.conf"
+cp -f $CUR_DIR/httpd.conf /etc/httpd/conf/httpd.conf 
+
+echo ""
+echo "/*******************************************/"
+echo "/********disable selinux********************/"
+echo "/*******************************************/"
+echo "cp -f $CUR_DIR/config /etc/selinux/config"
+cp -f $CUR_DIR/config /etc/selinux/config
+setenforce 0
+
+echo ""
+echo "/*******************************************/"
+echo "/********enable apache auto start***********/"
+echo "/*******************************************/"
+echo "systemctl enable httpd.service"
+systemctl enable httpd.service
+
+echo ""
+echo "/*******************************************/"
+echo "/********enable MySQL auto start************/"
+echo "/*******************************************/"
+echo "systemctl enable mariadb.service"
+systemctl enable mariadb.service
+
+echo ""
+echo "/*******************************************/"
+echo "/********start apache***********/"
+echo "/*******************************************/"
+echo "systemctl start httpd.service"
+systemctl start httpd.service
+
+echo ""
+echo "/*******************************************/"
+echo "/********start MySQL************************/"
+echo "/*******************************************/"
+echo "systemctl start mariadb.service"
+systemctl start mariadb.service
+
+echo ""
+echo "/*******************************************/"
+echo "/********set MySQL password QWE123@#rty ****/"
+echo "/*******************************************/"
+#mysqladmin -u root password "QWE123@#rty"
+
+#管理系统修改数据库密码
+#/oadmin/Conf/config.php
+
+
+firewall-cmd --zone=public --add-port=80/tcp --permanent  
+firewall-cmd --zone=public --add-port=443/tcp --permanent  
+
+#GB28181 sip port
+firewall-cmd --zone=public --add-port=5060/tcp --permanent  
+firewall-cmd --zone=public --add-port=5060/udp --permanent  
+firewall-cmd --zone=public --add-port=5062/tcp --permanent  
+firewall-cmd --zone=public --add-port=5062/udp --permanent  
+
+#video play port
+firewall-cmd --zone=public --add-port=280/tcp --permanent
+firewall-cmd --zone=public --add-port=281/tcp --permanent 
+firewall-cmd --zone=public --add-port=554/tcp --permanent 
+firewall-cmd --zone=public --add-port=2554/tcp --permanent  
+firewall-cmd --zone=public --add-port=1935/tcp --permanent  
+firewall-cmd --zone=public --add-port=2935/tcp --permanent 
+
+#api port
+firewall-cmd --zone=public --add-port=180/tcp --permanent 
+firewall-cmd --zone=public --add-port=380/tcp --permanent 
+firewall-cmd --zone=public --add-port=580/tcp --permanent 
+firewall-cmd --zone=public --add-port=680/tcp --permanent 
+
+#video receive port
+firewall-cmd --zone=public --add-port=25000-50000/tcp --permanent 
+firewall-cmd --zone=public --add-port=25000-50000/udp --permanent 
+
+firewall-cmd --reload
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

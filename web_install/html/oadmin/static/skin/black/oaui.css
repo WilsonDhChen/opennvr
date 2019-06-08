@@ -1,0 +1,162 @@
+#OA_Tooler{
+}
+#OA_Mainer{
+	background:#fff;
+}
+.oaui-toper{
+	background:#30373F;
+}
+
+.oaui-taskbar .tasktab-item{
+	background:#4A5561;
+    color:#6D7E90;
+}
+.oaui-taskbar .tasktab-item:hover{
+    box-shadow:0 0 1000px rgba(200,200,200,.2) inset;
+}
+/* IE9 hack */
+:root .oaui-taskbar .tasktab-item:hover{
+}
+.oaui-taskbar .tasktab-item-active{
+    background:#282c35;
+    color:#387AFF;
+}
+.oaui-taskbar .tasktab-item .tasktab-icon{
+}
+
+.oaui-taskbar .tasktab-item-active .tasktab-icon{
+}
+.oaui-taskbar .tasktab-item .tasktab-text{
+}
+
+.oaui-taskbar .tasktab-item .tasktab-close{
+	color:#aaa;
+	text-shadow:0 0 1px #000;
+}
+
+.oaui-taskbar .tasktab-item .tasktab-close:hover{
+	color:#fff;
+}
+.oaui-taskbar .tasktab-item:hover .tasktab-close{
+}
+.oaui-taskbar .tasktab-item-active .tasktab-close{
+}
+
+.oaui-loading{
+	background:#f0f0f0;
+}
+.oaui-loading div{
+    color: #666;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.5);
+	background-color:#fefefe;
+	background-image:url(image/loading_desktop.gif);
+}
+
+.pagetab-sidebar{
+    background:#30373F;
+}
+
+.sidetab-item{
+	border-top:1px solid #4A5561;
+	background:#282C35;
+}
+
+.sidetab-item:hover{
+
+}
+.sidetab-item:hover dt{
+	color:#fff;
+}
+
+.sidetab-item dt{
+	color:#9f9f9f;
+}
+
+.sidetab-item dd{
+	background-image:url(image/oaui-arrow.png);
+}
+
+.sidetab-item .side-submenu{
+	background:#444;
+	border-top:1px solid #333;
+	border-bottom:1px solid #535353;	
+	border-left:1px solid #535353;
+	border-right:1px solid #333;
+}
+
+.sidetab-item .side-submenu li{
+	border-top:1px solid #535353;
+	border-bottom:1px solid #333;	
+	color:#9f9f9f;
+}
+.sidetab-item .side-submenu li:hover{
+	color:#fff;
+	border-top:1px solid #111;
+	border-bottom:1px solid #888;	
+}
+.sidetab-item-active{
+	background:#4A5561;
+}
+.sidetab-item-active dt{
+	color:#fff;
+}
+.sidetab-item-active:hover{
+    background:#606c79;
+}
+.sidetab-item-active:hover dt{
+    color:#fff;
+}
+
+.pagetab-pagebar,.pagetab-desktop{
+}
+.pagetab-pagebar{
+	background:#fff;
+}
+.pagetab-desktop{
+	background:#f0f0f0;
+}
+
+.pagetab-desktop .app-item{
+	border:1px solid #cacaca;
+    box-shadow:0 0 0 0 rgba(0,0,0,.2);
+    transition:box-shadow .5s ease;
+    transition-delay:.2s;
+}
+.pagetab-desktop .app-inner{
+	background:#f7f7f7;
+	border:1px solid #fff;
+	color:#505251;	
+}
+
+.pagetab-desktop .app-item:hover{
+	border:1px solid #aaa;
+    box-shadow:0 0 10px 0 rgba(0,0,0,.2);
+}
+
+.pagetab-desktop .app-item:hover .app-inner{
+	background-color:#f2f2f2;
+	border:1px solid #fff;
+	color:#333;
+}
+.pagetab-nothing{
+	background:#f0f0f0;	
+}
+.pagetab-nothing h2{
+	color:#aaa;
+}
+
+.pagetab-nothing .app-tips-face{
+	color:#ccc;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+.ztree a {color:#3C6E31;text-decoration: underline;}
+.ztree a:hover {background-color:#3C6E31;color:white;}
+.ztree input.radio {margin: 0 2px 0 8px;}
+.ztree input.radio.first {margin-left:0;}
+.ztree input.empty {color: lightgray;}
+.ztree code {color: #2f332a;}
+.ztree .highlight_red {color:#A60000;}
+.ztree .highlight_green {color:#A7F43D;}
+.ztree li {list-style: circle;font-size: 12px;}
+.ztree li.title {list-style: none;}
+.ztree ul.list {margin-left: 17px;}
+
+.ztree div.content_wrap {width: 600px;height:380px;}
+.ztree div.content_wrap div.left{float: left;width: 250px;}
+.ztree div.content_wrap div.right{float: right;width: 340px;}
+.ztree div.zTreeDemoBackground {width:250px;height:362px;text-align:left;}
+
+.ztree ul.ztree {margin-top: 10px;border: 1px solid #617775;background: #f0f6e4;width:220px;height:360px;overflow-y:scroll;overflow-x:auto;}
+.ztree ul.log {border: 1px solid #617775;background: #f0f6e4;width:300px;height:170px;overflow: hidden;}
+.ztree ul.log.small {height:45px;}
+.ztree ul.log li {color: #666666;list-style: none;padding-left: 10px;}
+.ztree ul.log li.dark {background-color: #E3E3E3;}
+
+/* ruler */
+.ztree div.ruler {height:20px; width:220px; background-color:#f0f6e4;border: 1px solid #333; margin-bottom: 5px; cursor: pointer}
+.ztree div.ruler div.cursor {height:20px; width:30px; background-color:#3C6E31; color:white; text-align: right; padding-right: 5px; cursor: pointer}

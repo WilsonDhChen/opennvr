@@ -1,0 +1,27 @@
+#!/usr/bin/sh
+
+CUR_DIR=$(pwd)
+
+cd "$CUR_DIR/env_install"
+sh ./env_install
+
+cd "$CUR_DIR/web_install"
+sh ./web_install
+
+
+cd "$CUR_DIR/nvr_install"
+sh ./nvr_install
+
+
+echo ""
+echo "/*******************************************/"
+echo "/********    reboot .......*****************/"
+echo "/*******************************************/"
+
+sleep 10
+
+init 6
+
+
+
+

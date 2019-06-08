@@ -1,0 +1,14 @@
+#!/usr/bin/sh
+CUR_DIR=$(pwd)
+
+cp -rvf $CUR_DIR/nvr /opt/
+
+
+chmod 777 -R /opt/nvr
+
+cp -f $CUR_DIR/tcptest /usr/bin/
+chmod 777 /usr/bin/tcptest
+
+cp -f $CUR_DIR/rc.local /etc/rc.d/
+chmod 777 /etc/rc.d/rc.local
+

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+ulimit -S -c unlimited
+echo  "crash-%e-%s-%u-%g-%p-%t" > /proc/sys/kernel/core_pattern
+sysctl  kernel.core_pattern="crash-%e-%s-%u-%g-%p-%t" 
+# suffix of the core file name
+echo  "1" > /proc/sys/kernel/core_uses_pid
+
+CURDIR=$(pwd)
+export LD_LIBRARY_PATH=$CURDIR:$CURDIR/ffmpeg:/code/unix/libso/Linux:$CURDIR/lib:$CURDIR/qt:/usr/local/lib:$LD_LIBRARY_PATH
+export PATH=$PATH:$CURDIR:$CURDIR/ffmpeg:$CURDIR/bin
+
+ulimit -n 50000
+export MALLOC_ARENA_MAX=1
+chmod 777 ./transcodesrv
+
+tcptest 127.0.0.1:3306  500
+
+sleep 30
+#route add -net 224.2.2.0 netmask 255.255.255.0 dev eno2
+
+while [ 1 ]
+do
+    ./transcodesrv $1
+    sleep 10
+done

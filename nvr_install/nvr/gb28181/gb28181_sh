@@ -1,0 +1,31 @@
+#!/bin/sh
+
+ulimit -S unlimited
+ulimit -c unlimited
+echo  "crash-%e-%s-%u-%g-%p-%t" > /proc/sys/kernel/core_pattern
+sysctl  kernel.core_pattern="crash-%e-%s-%u-%g-%p-%t" 
+# suffix of the core file name
+echo  "1" > /proc/sys/kernel/core_uses_pid
+
+CURDIR=$(pwd)
+export LD_LIBRARY_PATH=$CURDIR:$CURDIR/ffmpeg:/code/unix/libso/Linux:$CURDIR/lib:$CURDIR/qt:/usr/local/lib:$LD_LIBRARY_PATH
+export PATH=$PATH:$CURDIR:$CURDIR/ffmpeg:$CURDIR/bin
+export MALLOC_ARENA_MAX=1
+ulimit -n 50000
+
+echo "wait for MySQL start"
+STATUS=$(tcptest 127.0.0.1:3306  20)
+if [ "$STATUS" == "OK" ];then
+echo "MySQL started"
+sleep 1
+else
+echo "MySQL not started, exited"
+exit 1
+fi
+
+chmod 777 ./gb28181
+while [ 1 ]
+do
+    ./gb28181 $1
+    sleep 1
+done

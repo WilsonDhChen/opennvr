@@ -1,0 +1,485 @@
+.scrollbar-black::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #d9dfe8;
+}
+
+.scrollbar-black::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+.scrollbar-black::-webkit-scrollbar-thumb
+{
+    background-color: #999;
+    border:1px solid #aaa;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+#container {
+    padding: 10px;
+}
+.container-left {
+    position: fixed;
+    left: 0;
+    top:0;
+    overflow: auto;
+    width: 300px;
+    height: 100%;
+    color: #333;
+    background: #efefef;
+}
+.container-right {
+    position: fixed;
+    left: 300px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+}
+.container-left-tips {
+    font-size: 14px;
+    background: #444;
+    padding: 10px;
+    margin: 0;
+    color: #efefef;
+}
+.container-right .container-left-tips {
+    background: #999;
+}
+
+.groups-container
+{
+    height: 100%;
+    position: fixed;
+    top:40px;
+    bottom: 0;
+    right: 0;
+    left: 300px;
+}
+
+.groups-lists {
+    padding: 10px;
+}
+.groups-lists dl {
+    margin-left: 15px;
+    margin-bottom: 0;
+}
+
+.groups-lists dt{
+    background: url(../image/jhj.png) no-repeat 5px center;
+    background-size: 16px auto;
+    padding-left: 34px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.groups-lists dd {
+
+}
+
+.groups-lists dd a{
+    display: block;
+    background: url(../image/sst.png) no-repeat 5px center;
+    background-size: 16px auto;
+    padding: 0 46px 0 34px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-left: 30px;
+    color: #333;
+    text-decoration: none;
+    position: relative;
+}
+.groups-lists dd a.live-status-1 {
+    background: url(../image/sst-1.png) no-repeat 5px center;
+    background-size: 16px auto;
+}
+.groups-lists dd a.live-status-3 {
+    background: url(../image/sst-3.png) no-repeat 5px center;
+    background-size: 16px auto;
+}
+
+.groups-lists dd a .delete-btn {
+    display: none;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    color: #ff9999;
+}
+.groups-lists dd a .action-btn {
+    display: none;
+    position: absolute;
+    right: 27px;
+    top: 7px;
+}
+.groups-lists dd a.live-status-1 .action-btn{
+    color: #999999;
+}
+
+.groups-lists dd a.live-status-2 .action-btn{
+    color: #14678d;
+}
+
+.groups-lists dt:hover,.groups-lists dd a:hover,.groups-lists dt.active,.groups-lists dd .active {
+    background-color: #ddd;
+}
+
+.field-lists .input-group {
+    margin-bottom: 5px;
+}
+.field-lists .input-group-addon {
+    text-align: left;
+    width: 120px;
+}
+.field-lists .form-control {
+    width: 300px;
+}
+.plan-container {
+    margin-bottom: 30px;
+}
+.plan-write {
+    background: #efefef;
+    padding: 20px 10px;
+    position: relative;
+}
+.plan-week {
+    margin-bottom: 10px;
+    width: 790px;
+    font-size: 12px;
+    height: 48px;
+}
+.plan-day {
+    height: 48px;
+    line-height: 48px;
+    margin-right: 10px;
+    width: 40px;
+}
+.plan-hours-scale {
+}
+.plan-hours {
+    width: 722px;
+    background: #ffffff;
+    height: 20px;
+    border: 1px solid #ddd;
+    position: relative;
+    cursor: default;
+}
+
+.plan-selected {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    background: #637DEC;
+    cursor: default;
+}
+.plan-selected-1 {
+    background: #637DEC;
+}
+.plan-selected-2 {
+    background: #74B557;
+}
+.plan-selected-3 {
+    background: #B83F42;
+}
+.plan-selected-4 {
+    background: #E58805;
+}
+.plan-selected-5 {
+    background: #B9E2FE;
+}
+.plan-selected-6 {
+    background: #AA6FFE;
+}
+.plan-one-hour {
+    float: left;
+    margin-left: 29px;
+    width: 1px;
+    height: 8px;
+    background: #ccc;
+}
+.plan-hours-value {
+    float: left;
+    width: 59px;
+}
+.plan-hours-value-12 {
+    width: 24px;
+}
+.plan-one-hour-0 {
+    margin-left: 0;
+}
+.plan-hours-scale-value {
+    line-height: 16px;
+}
+
+.plan-type-lists {
+    line-height: 24px;
+    margin: 46px 0 0 30px;
+}
+.plan-type-item span {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+}
+.plan-type-1 span{
+    background: #637DEC;
+}
+.plan-type-2 span{
+    background: #74B557;
+}
+.plan-type-3 span{
+    background: #B83F42;
+}
+.plan-type-4 span{
+    background: #E58805;
+}
+.plan-type-5 span{
+    background: #B9E2FE;
+}
+.plan-type-6 span{
+    background: #AA6FFE;
+}
+.plan-selected-control {
+    position: relative;
+    width: 100%;
+    height: 20px;
+}
+.plan-selected-left {
+    position: absolute;
+    left: 0;
+    top:-1px;
+    height: 20px;
+    width: 5px;
+    cursor: e-resize;
+}
+.plan-selected-left:before {
+    display: none;
+    content: '';
+    width: 5px;
+    height: 5px;
+    top: 7px;
+    left: -2px;
+    background: #fff;
+    border: 1px solid #000;
+    position: absolute;
+
+}
+.plan-selected-right {
+    position: absolute;
+    right: 0;
+    top:-1px;
+    height: 20px;
+    width: 5px;
+    cursor: e-resize;
+}
+.plan-selected-right:after {
+    display: none;
+    content: '';
+    width: 5px;
+    height: 5px;
+    top: 7px;
+    right: -2px;
+    background: #fff;
+    border: 1px solid #000;
+    position: absolute;
+}
+.plan-selected-active .plan-selected-left:before,.plan-selected-active .plan-selected-right:after{
+    display: block;
+}
+.plan-selected-active {
+    border: 1px dotted #000;
+}
+.plan-time-tips {
+    display: none;
+}
+.plan-time-tips-left,.plan-time-tips-right {
+    position: absolute;
+    display: block;
+    width: 37px;
+    height: 22px;
+    text-align: center;
+    line-height: 16px;
+    font-size: 12px;
+    color: #fff;
+    font-style: normal;
+    background: url('../image/timeplan-icons.png') no-repeat -3px -3px;
+}
+.plan-time-tips-hover {
+    position: absolute;
+    display: none;
+}
+.plan-time-tips-hover-top {
+     width: 98px;
+     text-align: center;
+     line-height: 30px;
+     border: 1px solid #ddd;
+     border-bottom: 0;
+     background: #fff;
+     font-size: 12px;
+ }
+
+.plan-time-tips-hover-bottom {
+    width: 98px;
+    height: 7px;
+    background: url('../image/timeplan-icons.png') no-repeat -81px -10px;
+}
+
+.plan-time-form {
+    position: absolute;
+    display: none;
+}
+.plan-time-form-top {
+    width: 186px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    background: #fff;
+    font-size: 12px;
+    padding: 20px 10px 10px;
+}
+
+.plan-time-form-bottom {
+    width: 184px;
+    height: 12px;
+    background: url('../image/timeplan-icons.png') no-repeat -3px -30px;
+}
+.plan-time-form .form-control-plan-time {
+    width: 32px;
+    text-align: center;
+    padding: 0
+}
+
+.play-container {
+
+}
+.player {
+    width: 600px;
+    height: 338px;
+    background: #000;
+}
+.play-control-container {
+    margin-top: 30px;
+}
+.playback-contorl-container {
+    margin-top: 30px;
+}
+
+
+.gb28181-container .field-lists .input-group-addon{
+    width: 300px;
+}
+
+.getallchsbytree-lists {
+    border: 3px solid #000000;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 0 auto 30px;
+}
+
+.getallchsbytree-lists dl {
+    margin: 0;
+    padding: 0;
+}
+.getallchsbytree-lists dl dt {
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: normal;
+    cursor: pointer;
+    padding-left: 10px;
+    margin: 0;
+}
+.getallchsbytree-lists dl dt:hover,.getallchsbytree-lists dl dt.active,.getallchsbytree-lists dl dd:hover,.getallchsbytree-lists dl dd.active {
+    background: #efefef;
+}
+.getallchsbytree-lists dl dd {
+    margin-left: 30px;
+    padding-left: 10px;
+    line-height: 24px;
+    color: #999999;
+    cursor: pointer;
+}
+.online{
+    width: 640px;
+    border: 1px solid #DDDDDD;
+}
+.online .partners{
+    width: 300px;
+    background: #efefef;
+    min-height: 500px;
+    padding: 20px 0 20px 20px;
+}
+.online .partners ul {
+    margin: 0;
+    padding: 0;
+}
+.online .partners ul li{
+    list-style: none;
+    line-height: 30px;
+    text-indent: 10px;
+    cursor: pointer;
+    margin-bottom: 4px;
+    border-radius: 10px 0 0 10px;
+}
+.online .partners ul li.active,.online .partners ul li:hover {
+    background: #00a2d4;
+    color: #FFFFFF;
+}
+.online .childs {
+    width: 300px;
+    min-height: 500px;
+    padding: 20px;
+}
+.online .childs ul {
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+.online .childs ul.active {
+    display: block;
+}
+.online .childs ul li{
+    list-style: none;
+    line-height: 30px;
+    text-indent: 10px;
+}
+.online .childs ul li:hover{
+    background: #efefef;
+}
+.spage-content h3 {
+    font-size: 16px;
+    font-weight: bold;
+}
+.spage-content {
+    line-height: 30px;
+}
+.spage-content span {
+    margin-right: 30px;
+
+}
+
+.con-list{ margin:20px 0 0 0; border-top:1px solid #ddd; width:600px;}
+.con-list-fl{ width:40%; margin-right:60px; margin-bottom:15px;}
+
+
+.form-item{ padding:13px 0 13px 10px; border:1px solid #ddd; border-top:0; color:#666;}
+.form-item .ui-label{ font-size:14px; color:#404040;  margin:0 6px 0 0; width:140px; display:inline-block; vertical-align:middle; border-right:1px solid #ddd; margin-right:10px;}
+.form-item .ui-select{ width:295px; height: 32px; line-height:32px; border:1px solid #c6c6c6; font-size:14px; color:#666;  vertical-align:middle;}
+.form-item .ui-text{ padding:8px; border:1px solid #c6c6c6; font-size:14px; height:16px; line-height:16px; color:#666; width:276px; vertical-align:middle;}
+.form-item .ui-area:focus,.form-item .ui-text:focus{ border:1px solid #666;}
+.form-item label{ font-size:12px; color:#666; font-weight: normal; vertical-align:middle;}
+.form-item .ui-radio{ vertical-align:middle;}
+.form-item .ui-area{ padding:5px; font-size:14px; color:#666; width:500px; height:80px; line-height:20px; vertical-align:middle; border:1px solid #dff1d9; border-radius:5px;}
+.form-sub{ border-top:1px solid #e2e2e2; margin-top:30px; padding-top:20px;}
+.form-sub-1{ text-align:center;}
+.form-item .tips{ font-size:12px; color:#666; margin-left:20px;}
+
+.power-0,.power-1 { display:block; float:left; margin:0 40px 0 15px; text-align:center; text-outline:none; text-decoration: none}
+.power-0 p{ border:1px solid #11cd6e; color:#11cd6e; margin-top:10px; font-size:14px; padding:5px;}
+.power-1 p{ border:1px solid #eb4f38; color:#eb4f38; margin-top:10px; font-size:14px; padding:5px;}

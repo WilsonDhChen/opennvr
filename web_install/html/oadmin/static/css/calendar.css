@@ -1,0 +1,65 @@
+.calendar{ margin:10px 0 0 0; background:#FFFFFF; border:#DDDDDD 2px solid; width:470px; padding:10px; position:relative;}
+.calendar a{ text-decoration: none}
+.select-box{ width:100%; height:26px; line-height:26px; font-size:13px;}
+.select-year{ color:#333333; width:86px; height:24px; line-height:24px; border-color:#999999 #D8D8D8 #D8D8D8 #999999; border-style:solid; border-width:1px; }
+.select-year-box{ width:90px; height:24px; position:relative;}
+.select-year-val-list{ display:none; padding-top:3px; position:absolute; z-index: 10; left:-1px; top:22px; width:62px; border:1px #D8D8D8 solid; background:#FFFFFF;}
+.select-year-list-val{ text-indent:8px; font-size:12px; cursor:pointer; height:25px; line-height:25px;}
+.select-year-list-val:hover{ background:#efefef;}
+.select-year-val{ width:61px; height:22px; text-align:center;}
+.select-year-icon{ width:24px; height:22px; border-left:1px solid #D9D9D9; border-right:1px solid #D9D9D9; background:#fafafa url(../image/icons_0503.png) no-repeat -402px -138px;}
+.select-year-icon:hover{ background:#efefef url(../image/icons_0503.png) no-repeat -402px -138px;}
+.select-month{ margin-left:14px; color:#333333; height:24px; line-height:24px; border-color:#999999 #D8D8D8 #D8D8D8 #999999; border-style:solid; border-width:1px;  }
+.select-month-val-box{ width:66px; height:24px; position:relative;}
+.select-month-val-box:hover{ background:#fafafa;}
+.select-month-val-list{ display:none; position:absolute; z-index:999; left:-1px; top:24px; width:66px; border:1px #D8D8D8 solid; background:#FFFFFF;}
+.select-month-list-val{ text-indent:10px; font-size:12px; cursor:pointer; height:25px; line-height:25px;}
+.select-month-list-val:hover{ background:#efefef;}
+.select-month-icon-1{ width:22px; height:22px; border-right:1px solid #D9D9D9; background:#fafafa url(../image/icons_0503.png) no-repeat -812px -139px;}
+.select-month-icon-1:hover{ background:#fafafa url(../image/icons_0503.png) no-repeat -1005px -163px;}
+.select-month-icon-2{ width:15px; height:22px; background:url(../image/icons_0503.png) no-repeat -410px -138px;}
+.select-month-icon-3{ width:22px; height:22px; border-left:1px solid #D9D9D9; background:#fafafa url(../image/icons_0503.png) no-repeat -836px -139px;}
+.select-month-icon-3:hover{ background:#fafafa url(../image/icons_0503.png) no-repeat -1028px -163px;}
+.select-month-val{ width:50px; height:24px; line-height:24px; text-indent:10px;}
+
+.text_uncheck{ cursor:default;}
+
+.calendar_box{ margin-top:10px; font-family:arial; font-weight:normal;}
+.calendar_box table tr th{ border-top:#DDDDDD 1px solid; color:#333333; width:60px; font-size:14px; height:36px;  text-align:center;}
+.calendar_box table tr th.color-red{ color:#E02D2D;}
+.calendar_box table tr td{ cursor:pointer; width:60px; height:48px; font-size:13px; text-align:center; border-top:1px solid #C8CACC;}
+.calendar_box table tr td .date-list .date-val{ font-size:18px; display:block; color:#000000; height:24px; text-align:center;}
+.calendar_box table tr td .date-list .date-val-c{ font-size:12px; color:#999999;}
+.calendar_box table tr td .date-list .not_m .date-val{ color:#dbdbdb;}
+.calendar_box table tr td .date-list .not_m .date-val-c{ color:#dbdbdb;}
+.calendar_box table tr td.color-red .date-list .not_m .date-val{ color:#dbdbdb;}
+.calendar_box table tr td.color-red .date-list .not_m .date-val-c{ color:#dbdbdb;}
+.calendar_box table tr td.color-red .date-list .date-val{ color:#E02D2D;}
+.calendar_box table tr td.color-red .date-list .date-val-c{ color:#E02D2D;}
+.calendar_box table tr td .date-list .data-list-box{border:#FFFFFF 3px solid; display:block; position:relative;}
+.calendar_box table tr td .date-list .data-list-box:hover{ border:#FFBB00 3px solid;}
+.calendar_box table tr td .date-list .now_date{border:#E02D2D 3px solid;}
+.calendar_box table tr td .date-list .now_date .date-val{ color:#E02D2D;}
+.calendar_box table tr td .date-list .now_date .date-val-c{ color:#E02D2D;}
+.calendar_box table tr td .date-list .user_has_leave { background:#FFF0F0;}
+.calendar_box table tr td .date-list .user_ing_leave { background:#FFF0F0;}
+.calendar_box table tr td .date-list .user_false_leave { background:#FFF0F0;}
+.calendar_box table tr td .date-list .user_has_leave .date-val-tips{ position:absolute; width:16px; height:16px; top:1px; left:1px; background:#00a0e9}
+.calendar_box table tr td .date-list .data-list-box-focus{ border:#FFBB00 3px solid;}
+
+
+.date-time{ display:none;}
+.leave-btn { margin-left:15px; width:40px; height:26px;}
+.leave-btn a{ color:#333333; display:block; width:42px; height:24px; line-height:24px; border:1px solid #D8D8D8; background:#F9F9F9; text-align:center;}
+.leave-btn a:hover{ border:1px solid #388bff;}
+
+.leave-view{ padding:10px; position:absolute; left:466px; top:-2px; bottom:-2px; width:250px; background:#DDDDDD; color:#000000; overflow-y:auto; }
+.leave-title{ margin-bottom:6px; font-size:14px; font-weight:bold;}
+.leave-date-info{ font-size:12px;}
+
+.leavetype{ font-size:12px; color:#333333}
+.date-time-text p{ margin:3px 0;}
+.date-time-text p input{ padding:3px; border:1px #d8d8d8 solid; color:#333333; width:80px;}
+.content{ padding:3px;  border:1px #d8d8d8 solid; color:#333333; width:160px; height:80px; font-size:12px; line-height:20px;}
+.classid{ font-size:12px; color:#333333;}
+.leave-tips{ border:1px solid #FEEA93; background:#FEFCDF; color:#666666; font-family:Verdana; font-weight:normal; padding-left:24px; line-height:24px;}

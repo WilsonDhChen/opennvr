@@ -1,0 +1,17 @@
+html,body{ width:100%; height:100%; overflow:hidden; font-family:"Microsoft Yahei",Verdana;}
+#login_background{position:absolute; z-index:1;left:0;top:0;width:100%;height:100%; }
+#main{ margin:10%; height:380px; position:relative; z-index:2;}
+#info_panel{width:52%;  height:380px; background-color:transparent; background-repeat:no-repeat; background-position:center center; background-size:280px auto;-webkit-filter: blur(3px);-moz-filter: blur(3px);-ms-filter: blur(3px);filter: blur(3px);}
+#login_panel  {width:46%;height:380px;background:url(../image/login_panel_line.png) no-repeat left center;}
+#login_container{ padding:0px 0 0 40px;}
+#login_title{ color:#FFFFFF; margin:25px 0;padding-left:50px;background:url(../image/login_icon.png) no-repeat left center; text-shadow:1px 1px 0 #263e49; height:57px; line-height:55px; font-size:22px; font-family:"Microsoft Yahei";}
+#login_title h1{ font-size:26px; font-weight:normal;}
+#login_form input:required:invalid{box-shadow:none;}
+#login_form input:-webkit-autofill {-webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;}
+#login_form .text-label{border-radius:2px;display:block; position:relative;width:292px;height:30px; overflow:hidden;background-color:#ffffff; background-repeat:no-repeat; background-position:6px center;padding:4px 4px 2px 4px;border:1px solid #6e9cb3; margin-bottom:10px;}
+#login_form .account{ background-image:url(../image/login_account.png);}
+#login_form .password{ background-image:url(../image/login_password.png);}
+#login_form .text{ outline:none; border:0; background:transparent;margin-left:32px; width:260px; height:28px; line-height:28px; font-family:"Microsoft Yahei",Verdana; font-size:16px; color:#333; z-index:2;}
+#login_form .placeholder{ position:absolute; display:block; height:24px; line-height:24px; font-family:"Microsoft Yahei",Verdana; font-size:14px; color:#ccc; left:36px; top:4px; z-index:1;user-select:none;}
+#login_form .button-label{ margin-top:20px;display:block;}
+#login_form .submit{ width:302px; height:38px; border:0; outline:none; display:block; background:url(../image/login_submit.png) no-repeat left top; font-family:"Microsoft Yahei",Verdana; font-size:16px; font-weight:bold; color:#ffffff;}
