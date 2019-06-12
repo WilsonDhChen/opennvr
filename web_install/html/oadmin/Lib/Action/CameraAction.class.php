@@ -139,7 +139,7 @@ class CameraAction extends BaseAction
         } else {
             $sAreaName = I('get.sAreaNameSelect');
         }
-        $where = " sChid not in (select sGB28181InputId from bi_live_streams)";
+        $where = " sChid not in (select sGB28181InputId from bi_live_streams) and sType='IPC'";
         if ($sParentChid) {
             $where .= " and sParentChid = '{$sParentChid}'";
         }

@@ -103,8 +103,10 @@
                             <td>{$vo.fLatitude}</td>
                             <td>{$vo.sStatus}</td>
                             <td>
+<if condition="$vo['sType'] eq 'IPC'">
                             <button class="btn btn-primary btnPlay" data-gbid="{$vo.sChid}" style="padding:0px">播放</button>
                             <button class="btn btn-primary playState" data-gbid="{$vo.sChid}"  style="padding:0px">状态</button>
+</if>
                             </td>
                         </tr>
                     </volist>

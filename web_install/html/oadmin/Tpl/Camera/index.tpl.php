@@ -11,7 +11,7 @@
         var lives = <?php echo $lives?json_encode($lives):"[]"; ?>;
         $(function () {
             
-            $('[data-toggle="tooltip"]').tooltip();
+            //$('[data-toggle="tooltip"]').tooltip();
 
             $(".groups-lists dt").click(function () {
                 var gid = $(this).parent("dl").data("id");
@@ -67,7 +67,7 @@
 
                             });
                             $(_this).parent("dl").find("dd").html(camera);
-                            $('[data-toggle="tooltip"]').tooltip();
+                            //$('[data-toggle="tooltip"]').tooltip();
                         }
                     });
 

@@ -41,7 +41,7 @@ $(function(){
 		    	<div class="sidebar-wrap">
 		        	<dl class="sidetab-item sidetab-item-navi sidetab-item-staff">
 					  <dt>
-                        <i class="site-icon fa fa-user fa-fw fa-lg"></i>
+                        <i class="site-icon fa fa-user fa-fw"></i>
 					  	<p class="site-name">{$staff.username}</p>
 					  </dt>
 <!--
@@ -57,7 +57,7 @@ $(function(){
 		        	</dl>
                     <dl class="sidetab-item" onclick="OAUI.Desktop.Logout()">
 					  <dt>
-                        <i class="site-icon fa fa-sign-out fa-fw fa-lg"></i>
+                        <i class="site-icon fa fa-sign-out fa-fw"></i>
 					  	<p class="site-name">退出登录</p>
 					  </dt>
 		        	</dl>

@@ -1620,6 +1620,12 @@ class Model {
 		
 	}
 
+    public function setDb($db)
+    {
+        $this->db = $db;
+        return $this;
+    }
+
 
 	
 

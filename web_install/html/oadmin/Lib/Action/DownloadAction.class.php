@@ -35,7 +35,8 @@ class DownloadAction extends BaseAction
 
         $play_api_url = config("api_play_url")->value();
 		$app = M()->table('config_global_keyvalue')->where("name = 'app'")->find();
-        $this->play_url = str_replace(array('{id}','{host}','{app}'),array($this->info['id'],$_SERVER['HTTP_HOST'],$app['value']),$play_api_url);
+        $host = $this->getHost();
+        $this->play_url = str_replace(array('{id}','{host}','{app}'),array($this->info['id'],$host,$app['value']),$play_api_url);
 
         /*if ($play_api_url) {
             $this->play_url = str_replace("{id}",$this->info['id'],$play_api_url);
@@ -44,7 +45,7 @@ class DownloadAction extends BaseAction
         }*/
         $down_api_url = config("api_down_url")->value();
 		$app = M()->table('config_global_keyvalue')->where("name = 'app'")->find();
-        $this->down_url = str_replace(array('{id}','{host}','{app}'),array($this->info['id'],$_SERVER['HTTP_HOST'],$app['value']),$down_api_url).'?download=1';
+        $this->down_url = str_replace(array('{id}','{host}','{app}'),array($this->info['id'],$host,$app['value']),$down_api_url).'?download=1';
 
 
         /*if ($play_api_url) {
@@ -53,13 +54,24 @@ class DownloadAction extends BaseAction
             $this->down_url = "http://".$_SERVER['SERVER_ADDR']."/live/".$this->info['id'].'.ts?download=1';
         }*/
 
-
         $year = (int) $_GET['year']?(int) $_GET['year']:date('Y');
         $month = (int) $_GET['month']?(int) $_GET['month']:date('n');
         $checkon = D('Checkon');
         $calendar = $checkon->calendar($year,$month,$this->info['id']);
 
-        $min_year = D('Vods')->table("nvr_live_".$this->info['id'])->getField("min(sBeginTime)");
+        $domain = M()->table('config_global_keyvalue')->where("name='domain'")->find();
+        $database = !empty($domain) ? 'nvr_'.$domain['value'] : 'nvr_default';
+        $config = C();
+        $config = $config['db_config2'];
+        $config['db_name'] = $database;
+        $db = Db::getInstance($config);
+        $db = M()->setDb($db);
+        $table = 'nvr-gb28181-'.$this->info['id'];
+        $mdb = $db->table($table);
+        //var_dump($mdb);exit;
+        $min_year = $mdb->getField("min(sBeginTime)");
+
+        //$min_year = D('Vods')->table("nvr_live_".$this->info['id'])->getField("min(sBeginTime)");
 
         $this->min_year = date('Y',strtotime($min_year));
         
@@ -94,6 +106,15 @@ class DownloadAction extends BaseAction
 
         $this->response("success",'',$calendar);
 
+    }
+
+    
+    private function getHost()
+    {
+        $host = $_SERVER['HTTP_HOST'];
+        $host = explode(':', $host);
+        $host = array_shift($host);
+        return $host;
     }
 
 }

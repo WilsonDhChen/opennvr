@@ -61,6 +61,23 @@
                     url_str += "&endtime="+timefliter(datetime+" "+otime);
                 }
                 url_str = "{$play_url}"+url_str;
+
+                player.unload();
+                player.detachMediaElement();
+                player.destroy();
+                player = null;
+
+                player = flvjs.createPlayer({
+                    type: 'flv',
+                    url:url_str,
+                    enableWorker: false,
+                    lazyLoadMaxDuration: 3 * 60, 
+                    seekType: 'range'
+                });
+                player.attachMediaElement(video);
+                player.load();
+                player.play();
+/*
                 jwplayer("myplayer").setup({
                     file: url_str,
                     width: "100%",
@@ -69,6 +86,7 @@
                     useaudio:true,
                     autostart:true
                 });
+*/
 
             })
 

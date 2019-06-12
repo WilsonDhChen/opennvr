@@ -93,7 +93,7 @@ class SystemAction extends BaseAction
 		if(!is_uploaded_file($file['tmp_name'])){
 		  $this->response("error","系统错误");
 		}
-		$upload_path = "/data/www/default/oadmin/static/image/";
+		$upload_path = APP_ROOT."/oadmin/static/image/";
 		if(move_uploaded_file($file['tmp_name'],$upload_path.'logo.png')){
 			$this->response("success",'上传成功');
 		}else{

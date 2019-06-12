@@ -72,7 +72,7 @@ class CheckonModel extends Model{
 		$html ='';
 		$m_o = $calendar_arr[$k-1]['time']+86400;
 		//录像标记
-        $get_sign = $this->get_sign($m_s,$m_o,$id);
+        $get_sign = $this->get_sign_new($m_s,$m_o,$id);
 
 		foreach($calendar_arr as $key=>$val){
 			//判断日期是否是当月
@@ -154,5 +154,26 @@ class CheckonModel extends Model{
         
 		return $arr;
 	}
+
+    public function get_sign_new($stime, $otime, $id) {
+        
+        $domain = M()->table('config_global_keyvalue')->where("name='domain'")->find();
+        $database = !empty($domain) ? 'nvr_'.$domain['value'] : 'nvr_default';
+        $config = C();
+        $config = $config['db_config2'];
+        $config['db_name'] = $database;
+        $db = Db::getInstance($config);
+        $db = M()->setDb($db);
+        $table = 'nvr-gb28181-'.$id;
+        $mdb = $db->table($table);
+
+        $res = $mdb->field("nYear,nMonth,nDay")->where(" nBeginTime between $stime and $otime ")->group("nYear,nMonth,nDay")->select();
+		$arr = array();
+		foreach($res as $val){
+			$arr[] = strtotime($val['nYear'].'-'.$val['nMonth'].'-'.$val['nDay']);
+		}
+        
+		return $arr;
+    }
 	
 }

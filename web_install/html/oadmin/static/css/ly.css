@@ -483,3 +483,5 @@
 .power-0,.power-1 { display:block; float:left; margin:0 40px 0 15px; text-align:center; text-outline:none; text-decoration: none}
 .power-0 p{ border:1px solid #11cd6e; color:#11cd6e; margin-top:10px; font-size:14px; padding:5px;}
 .power-1 p{ border:1px solid #eb4f38; color:#eb4f38; margin-top:10px; font-size:14px; padding:5px;}
+
+.pull-left {float:left;}
