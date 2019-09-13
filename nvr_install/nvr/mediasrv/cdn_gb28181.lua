@@ -7,16 +7,44 @@ _nvraddr = _app.getinistring("transcodesrv_api_addr","addr")
 _nvrport= _app.getiniint("transcodesrv_api_addr","port")
 _nvrenable=_app.getinibool("transcodesrv_api_addr","enable")
 
+_urlNvrConfigCmd = "http://".._nvraddr..":".._nvrport.."/config/cmd.json"
+
 _gb28181addr = _app.getinistring("gb28181_api_addr","addr")
 _gb28181port= _app.getiniint("gb28181_api_addr","port")
 _gb28181enable=_app.getinibool("gb28181_api_addr","enable")
 
 _domain = _config.getdomain()
 _streamapp = _config.getapp()
+_playback_streamapp = _config.getplaybackapp()
 _domain_support = _config.domainsupport()
 ----------------------------------------------------------------------------------
-function OnAsynHttpReturn(key, status, content, requrl)
-	_log.print(_log.info,"key="..key..",status="..status..",content="..content..",requrl="..requrl .."\n")
+function OnAsynHttpReturn(type,key, status, content, requrl)
+    _log.print(_log.info,"type="..type..",key="..key..",status="..status..",content="..content..",requrl="..requrl .."\n")
+    if( status ~= 200 )
+	then
+	return 
+    end
+    
+    if( type  == "NvrNotifyStreamStatus1" )
+    then
+        local cjson = require "cjson"
+        local retjson = cjson.decode(content);
+
+        if( retjson["return"]  == 0 )
+        then
+            
+            
+            local data = cjson.decode(key);
+            local domain = data["domain"];
+            local app = data["app"];
+            local stream = data["stream"];
+    
+            local ctx = _stream.ctxgetctx(domain,app,stream)
+            _stream.setcallfromnvr(ctx, true);
+            _stream.ctxrelease(ctx)
+        end
+
+    end
 end
 ----------------------------------------------------------------------------------
 function NvrGb28181IdToStreamId(gb28181id)
@@ -51,6 +79,33 @@ function AsynNvrCallStartStream(streamid )
     local url = "http://".._nvraddr..":".._nvrport.."/startfromcdn?streamid="..streamid
     _log.print(_log.info,url .."\n")
     _lua_asyn_http_call("",url);
+end
+-----------------------------------------------------------------------------------
+function NvrNotifyStreamStatus(domain,streamapp , stream , status)
+	if( not _nvrenable )
+	then
+		return false
+    end
+    _log.print(_log.info,_urlNvrConfigCmd .."\n")
+
+    local cjson = require "cjson"
+	local status_json = {}
+    status_json["cmd"] = "status"
+    status_json["domain"] = domain
+    status_json["streamapp"] = streamapp
+	status_json["id"] = stream
+	status_json["status"] = status
+
+    local postdata = cjson.encode(status_json);
+    
+
+    local keyjson = {}
+	keyjson["app"] = streamapp
+	keyjson["domain"] = domain
+	keyjson["stream"] = stream	
+    local key = cjson.encode(keyjson);
+    
+    _lua_asyn_http_call("NvrNotifyStreamStatus"..status ,key,_urlNvrConfigCmd,postdata);
 end
 -----------------------------------------------------------------------------------
 function NvrCallStartStream(domain,streamapp , stream , gb28181id)
@@ -117,7 +172,7 @@ function Gb28181Notify(domain,streamapp , stream , gb28181id,gb28181id_input,nam
 	
 	local postdata = cjson.encode(gbjson);
 	_log.print(_log.info,postdata.."\n")
-	_lua_asyn_http_call("Gb28181Notify",url,postdata);
+	_lua_asyn_http_call("Gb28181Notify","",url,postdata);
 	
 	return true
 end
@@ -135,8 +190,12 @@ _enable_redis = _app.getinibool("redis","enable");
 
 _cjson = require "cjson"
 RedisPool = require 'redispool'
-_redispool = RedisPool:new(redis_connect_info)
-_redispool:push(_redispool:pop())
+
+if  _enable_redis then
+    _redispool = RedisPool:new(redis_connect_info)
+    _redispool:push(_redispool:pop())
+end
+
 
 
 function GetGlobalConfig()
@@ -416,6 +475,11 @@ function OnStreamPublished( ctx )
 	local streamid = _stream.getstream(ctx);
     local domain = _stream.getdomain(ctx);
     
+    if( not _stream.getcallfromnvr(ctx) )
+    then
+    NvrNotifyStreamStatus(domain,streamapp, streamid , 1 )
+    end
+
     local matchPlan = false
     
     if( _domain_support )
@@ -454,8 +518,16 @@ end
 ----------------------------------------------------------------------------------
 function OnStreamPublishClosed( ctx )
 	---通知国标服务器，视频下线
-	local streamapp =  _stream.getapp(ctx);
-	local domain = _stream.getdomain(ctx);
+    local streamapp =  _stream.getapp(ctx);
+    local streamid = _stream.getstream(ctx);
+    local domain = _stream.getdomain(ctx);
+    
+    if( not _stream.getcallfromnvr(ctx) )
+    then
+    NvrNotifyStreamStatus(domain,streamapp, streamid , 0 )
+    end
+
+
     local matchPlan = false
     
     if( _domain_support )
@@ -473,7 +545,7 @@ function OnStreamPublishClosed( ctx )
     
 	if( matchPlan )
 	then
-		Gb28181Notify( domain, streamapp, _stream.getstream(ctx), _stream.getgb28181id(ctx), _stream.getgb28181id_input(ctx),_stream.getname(ctx),  "OFF", "ADD")
+		Gb28181Notify( domain, streamapp, streamid, _stream.getgb28181id(ctx), _stream.getgb28181id_input(ctx),_stream.getname(ctx),  "OFF", "ADD")
 		return 0
 	end
 
@@ -494,7 +566,7 @@ function OnGetSourceStreamURL(domain, streamapp , stream , gb28181id, par ,proto
             matchPlan = true;
         end
     else
-        if( _streamapp == streamapp )
+        if( _streamapp == streamapp or _playback_streamapp == streamapp )
         then
             matchPlan = true;
         end
@@ -522,7 +594,8 @@ function OnGetSourceStreamURL(domain, streamapp , stream , gb28181id, par ,proto
             AsynNvrCallStartStream(streamid)
         else
             _log.print(_log.info, stream.." transfermode="..transfermode..",name="..name.."\n")
-            _app.callgb28181input(stream,sapp,"","",transfermode,name)
+            local begin_time, end_time, speed = _app.gettime_range(par)
+            _app.callgb28181input(stream,streamapp,"","",transfermode,name,false,begin_time,end_time, speed)
         end
         
 	return "" ;
@@ -576,7 +649,7 @@ function IsStreamExist(domain, streamapp, stream )
             AsynNvrCallStartStream(streamid)
         else
             _log.print(_log.info, stream.." transfermode="..transfermode..",name="..name.."\n")
-            _app.callgb28181input(stream,sapp,"","",transfermode,name)
+            _app.callgb28181input(stream,streamapp,stream,"",transfermode,name)
         end
     end
 	return 1 ;
