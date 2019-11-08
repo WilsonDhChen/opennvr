@@ -3,11 +3,11 @@ CUR_DIR=$(pwd)
 
 #yum install yum-plugin-downloadonly
 
-yum remove mariadb*
-yum remove net-tools*
-yum remove tcpdump*
-yum remove httpd*
-yum remove php*
+yum  -y remove mariadb*
+yum  -y remove net-tools*
+yum -y  remove tcpdump*
+yum -y  remove httpd*
+yum -y  remove php*
 
 cd "$CUR_DIR/rpms"
 yum -y  localinstall *.rpm 
