@@ -3,6 +3,10 @@
 
 # OpenNVR
 
+#### 基于OpenRTMP构建
+github   https://github.com/WilsonDhChen/OpenRTMP  
+国内下载   https://gitee.com/open-nvr/OpenRTMP  
+
 #### 介绍
 OpenNVR简介
 
