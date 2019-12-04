@@ -896,7 +896,7 @@ function redis.connect(...)
 		return nil
 	end
     local client = create_client(client_prototype, socket, commands)
-	if parameters.pwd ~= nil  then
+	if not _lua_str_isempty(parameters.pwd)  then
 		if not client:auth(parameters.pwd) then
 		client:quit();
 		return nil;
