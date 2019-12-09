@@ -14,19 +14,19 @@ ulimit -n 50000
 export MALLOC_ARENA_MAX=1
 chmod 777 ./transcodesrv
 
-echo "wait for MySQL start"
-STATUS=$(tcptest 127.0.0.1:3306  500)
-if [ "$STATUS" == "OK" ]; then
-echo "MySQL started,the app will start after 20 seconds"
-sleep 20
-else
-echo "MySQL not started, exited"
-echo "MySQL not started, exited" >> /var/log/mediasrv.log
-exit 1
-fi
 
 while [ 1 ]
 do
-    ./transcodesrv $1
-    sleep 2
+
+    echo "wait for MySQL start"
+    STATUS=$(tcptest 127.0.0.1:3306  5)
+    if [ "$STATUS" == "OK" ]; then
+        echo "MySQL started"
+        ./transcodesrv  $1
+        sleep 10
+    else
+        echo "MySQL not started, waitting"
+        sleep 5
+    fi
+
 done

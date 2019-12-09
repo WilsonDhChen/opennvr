@@ -14,19 +14,19 @@ ulimit -n 50000
 chmod 777 ./transcode
 chmod 777 ./transcodesrv
 
-echo "wait for MySQL start"
-STATUS=$(tcptest 127.0.0.1:3306  20)
-if [ "$STATUS" == "OK" ];then
-echo "MySQL started"
-sleep 1
-else
-echo "MySQL not started, exited"
-exit 1
-fi
 
 
 while [ 1 ]
 do
-    transcodesrv $1
-    sleep 1
+    echo "wait for MySQL start"
+    STATUS=$(tcptest 127.0.0.1:3306  5)
+    if [ "$STATUS" == "OK" ]; then
+        echo "MySQL started"
+        ./transcodesrv  $1
+        sleep 10
+    else
+        echo "MySQL not started, waitting"
+        sleep 5
+    fi
+
 done

@@ -14,20 +14,18 @@ export PATH=$PATH:$CURDIR
 ulimit -n 50000
 chmod 777 ./gb28181
 
-echo "wait for MySQL start"
-STATUS=$(tcptest 127.0.0.1:3306  500)
-if [ "$STATUS" == "OK" ]; then
-echo "MySQL started,the app will start after 10 seconds"
-sleep 10
-else
-echo "MySQL not started, exited"
-echo "MySQL not started, exited" >> /var/log/gb28181.log
-exit 1
-fi
 
 
 while [ 1 ]
 do
-    ./gb28181  $1
-    sleep 2
+    echo "wait for MySQL start"
+    STATUS=$(tcptest 127.0.0.1:3306  5)
+    if [ "$STATUS" == "OK" ]; then
+        echo "MySQL started"
+        ./gb28181  $1
+        sleep 10
+    else
+        echo "MySQL not started, waitting"
+        sleep 5
+    fi
 done

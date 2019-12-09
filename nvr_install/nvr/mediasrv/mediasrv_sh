@@ -17,6 +17,14 @@ chmod 777 ./mediasrv
 
 while [ 1 ]
 do
-    ./mediasrv
-    sleep 10
+    echo "wait for MySQL start"
+    STATUS=$(tcptest 127.0.0.1:3306  5)
+    if [ "$STATUS" == "OK" ]; then
+        echo "MySQL started"
+        ./mediasrv  $1
+        sleep 10
+    else
+        echo "MySQL not started, waitting"
+        sleep 5
+    fi
 done

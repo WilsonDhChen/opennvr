@@ -13,19 +13,19 @@ export PATH=$PATH:$CURDIR:$CURDIR/ffmpeg:$CURDIR/bin
 export MALLOC_ARENA_MAX=1
 ulimit -n 50000
 
-echo "wait for MySQL start"
-STATUS=$(tcptest 127.0.0.1:3306  20)
-if [ "$STATUS" == "OK" ];then
-echo "MySQL started"
-sleep 1
-else
-echo "MySQL not started, exited"
-exit 1
-fi
+
 
 chmod 777 ./gb28181
 while [ 1 ]
 do
-    ./gb28181 $1
-    sleep 1
+    echo "wait for MySQL start"
+    STATUS=$(tcptest 127.0.0.1:3306  5)
+    if [ "$STATUS" == "OK" ]; then
+        echo "MySQL started"
+        ./gb28181  $1
+        sleep 10
+    else
+        echo "MySQL not started, waitting"
+        sleep 5
+    fi
 done
