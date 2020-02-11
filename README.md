@@ -86,7 +86,7 @@ http://127.0.0.1:280/gb28181/chid.snapshot
 
 1. 系统要求 Centos 7
 2. 存储盘和系统盘要分开
-3. 下载后执行安装脚本 ./install
+3. 下载后执行安装脚本 sh ./install
 4. 默认用户名 admin 123456
 
 
