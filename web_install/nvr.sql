@@ -30,6 +30,7 @@ CREATE TABLE `bi_gb28181_subdevs_auth` (
   `sPwd` varchar(45) DEFAULT NULL,
   `server_type` varchar(30) DEFAULT NULL,
   `ip_recv_video` varchar(80) NOT NULL,
+  `ip_recv_sip` varchar(80) NOT NULL,
   `org_type` varchar(30) DEFAULT '',
   `gbversion` varchar(20) DEFAULT '',
   `transfer_mode` varchar(20) DEFAULT '',
@@ -365,6 +366,7 @@ CREATE TABLE `config_gb28181_parents` (
   `rtsp_addr` varchar(128) DEFAULT '',
   `vts_addr` varchar(128) DEFAULT '',
   `ip_recv_video` varchar(100) NOT NULL DEFAULT '',
+  `ip_recv_sip` varchar(100) NOT NULL DEFAULT '',
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
