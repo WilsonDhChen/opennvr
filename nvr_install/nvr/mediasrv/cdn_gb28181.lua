@@ -1,4 +1,6 @@
-﻿_config.gb28181.settransfer(true)
+﻿_cjson = require "cjson"
+
+_config.gb28181.settransfer(true)
 _app.setworkmode("cdn")
 
 _workmode = _app.getworkmode()
@@ -17,6 +19,46 @@ _domain = _config.getdomain()
 _streamapp = _config.getapp()
 _playback_streamapp = _config.getplaybackapp()
 _domain_support = _config.domainsupport()
+
+_h264toh265=_app.getinibool("mediasrv","h264toh265")
+
+_loglevel = 8
+---------------------------------------------------------
+RedisPool = require 'redispool'
+
+local redis_connect_info = {};
+redis_connect_info.host = _app.getinistring("redis","host");
+redis_connect_info.port = _app.getiniint("redis","port");
+redis_connect_info.pwd = _app.getinistring("redis","pass");
+redis_connect_info.timeout = _app.getiniint("redis","timeout");
+_enable_redis = _app.getinibool("redis","enable");
+if  _enable_redis then
+    _redispool = RedisPool:new(redis_connect_info)
+    _redispool:push(_redispool:pop())
+end
+
+
+local firewall_redis_connect_info = {};
+firewall_redis_connect_info.host = _app.getinistring("firewall_redis","host");
+firewall_redis_connect_info.port = _app.getiniint("firewall_redis","port");
+firewall_redis_connect_info.pwd = _app.getinistring("firewall_redis","pass");
+firewall_redis_connect_info.timeout = _app.getiniint("firewall_redis","timeout");
+
+_enable_firewall_redis = _app.getinibool("firewall_redis","enable");
+if  _enable_firewall_redis then
+    _firewall_redispool = RedisPool:new(firewall_redis_connect_info)
+    _firewall_redispool:push(_firewall_redispool:pop())
+end
+
+
+
+_local_rtspurl="rtsp://127.0.0.1/"
+_local_rtmpurl="rtmp://127.0.0.1:"
+
+
+function GetLocalRtmpUrl()
+    return _local_rtmpurl .. tostring(_config.rtmplocalport()) .. "/" 
+end
 ----------------------------------------------------------------------------------
 function OnAsynHttpReturn(type,key, status, content, requrl)
     _log.print(_log.info,"type="..type..",key="..key..",status="..status..",content="..content..",requrl="..requrl .."\n")
@@ -177,24 +219,6 @@ function Gb28181Notify(domain,streamapp , stream , gb28181id,gb28181id_input,nam
 	return true
 end
 
----------------------------------------------------------
-local redis_connect_info = {};
-redis_connect_info.host = _app.getinistring("redis","host");
-redis_connect_info.port = _app.getiniint("redis","port");
-redis_connect_info.pwd = _app.getinistring("redis","pass");
-redis_connect_info.timeout = _app.getiniint("redis","timeout");
-
-_enable_redis = _app.getinibool("redis","enable");
-
-
-
-_cjson = require "cjson"
-RedisPool = require 'redispool'
-
-if  _enable_redis then
-    _redispool = RedisPool:new(redis_connect_info)
-    _redispool:push(_redispool:pop())
-end
 
 
 
@@ -350,6 +374,11 @@ function OnStreamWillPlay(  ctx )
     if not _enable_redis then
         return 0 ;
     end
+
+    if _enable_firewall_redis then
+        local peerip = _stream.getpeeraddr(ctx);
+    end
+    
     
 	local domain = _stream.getdomain(ctx);
 
@@ -514,13 +543,44 @@ function OnStreamPublished( ctx )
     --]]
 	return 0 ;
 end
+---------------------------------------------------------
+function OnStreamHaveVideoData(ctx)
+    if  not _h264toh265  then 
+		return 0 ;
+    end 
+    local codec = _stream.getvideocodec(ctx);
+    if( _lua_strcmpi(codec,"h265") ~= 0 ) then
+        return 0;
+    end
 
+    local streamapp = _stream.getapp(ctx);
+	local streamid = _stream.getstream(ctx);
+    local domain = _stream.getdomain(ctx);
+
+    local transcodeid = domain .. streamapp .. streamid ;
+    local rtspurl = _local_rtspurl .. streamapp .. "/"..streamid.."?domain="..domain ;
+    local rtmpurl = GetLocalRtmpUrl() .. streamapp .. "/"..streamid.."_h264?domain="..domain .."&tsid="..streamid ;
+
+    _streampull.add_ffmpeg(transcodeid,1,1, "-loglevel", _loglevel, "-rtsp_transport", "tcp", "-stimeout", "4000000", "-i" , rtspurl, "-vcodec", 
+    "libx264", "-preset", "ultrafast","-s", "1280x720","-b", "1M", "-g", "10",
+    "-acodec", "libfdkaac", "-f", "flv", rtmpurl)
+
+    return 0 ;
+end
 ----------------------------------------------------------------------------------
 function OnStreamPublishClosed( ctx )
+
+
+    
 	---通知国标服务器，视频下线
     local streamapp =  _stream.getapp(ctx);
     local streamid = _stream.getstream(ctx);
     local domain = _stream.getdomain(ctx);
+
+    if  _h264toh265  then 
+        local transcodeid = domain .. streamapp .. streamid ;
+        _streampull.remove(transcodeid)
+    end 
     
     if( not _stream.getcallfromnvr(ctx) )
     then
@@ -561,7 +621,7 @@ function OnGetSourceStreamURL(domain, streamapp , stream , gb28181id, par ,proto
     
     if( _domain_support )
     then
-        if( _domain == domain and _streamapp == streamapp )
+        if( _domain == domain and (_streamapp == streamapp or _playback_streamapp == streamapp) )
         then
             matchPlan = true;
         end
