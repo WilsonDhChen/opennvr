@@ -46,9 +46,10 @@ github   https://github.com/WilsonDhChen/opennvr
 程序并发没有任何限制，但是实际并发数取决于网卡的速率和CPU的性能以及视频码率。期待大家拿更NB的机器测试，性能强劲的机器需要优化mediasrv.ini发挥多CPU性能(这样的设计可以在不支持fork的windows上支持高并发)  
   
 支持的协议：   
-1）输入协议，WebRTC/RTMP/RTSP/GB28181   
-2）输出协议，RTMP RTMPT HLS(Memory file support) RTSP HTTP-FLV(support video/audio only) HTTP-TS(支持混合一路GPS数据) HTTP-AAC GB28181 WebRTC UDP组播输出  
+1）输入协议，RTMP/RTSP/GB28181   
+2）输出协议，RTMP RTMPT HLS(Memory file support) RTSP HTTP-FLV(support video/audio only) HTTP-TS(支持混合一路GPS数据) HTTP-AAC GB28181 UDP组播输出  
 以上所有协议都支持SSL传输  
+3）WebRTC SFU支持(兼容Wowza Websocket播放协议)，音频支持OPUS g.711(PCMA/PCMU)  
 
 支持lua(5.3)：  
 1）lua脚本在mediasrv.lua中，里面对所有的API函数做了demo,请参考调用示例 
