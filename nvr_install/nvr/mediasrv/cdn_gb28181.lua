@@ -1,7 +1,7 @@
 ﻿_cjson = require "cjson"
 
 _config.gb28181.settransfer(true)
-_app.setworkmode("cdn")
+--_app.setworkmode("cdn")
 
 _workmode = _app.getworkmode()
 
@@ -19,7 +19,7 @@ _domain = _config.getdomain()
 _streamapp = _config.getapp()
 _playback_streamapp = _config.getplaybackapp()
 _domain_support = _config.domainsupport()
-
+_gb28181app="gb28181"
 _h264toh265=_app.getinibool("mediasrv","h264toh265")
 
 _loglevel = 8
@@ -335,8 +335,11 @@ end
 ----------------------------------------------------------
 function GlobalPlayCheck(ctx)
 
+    local domain = _stream.getdomain(ctx);
+
     local globalset = GetGlobalConfig();
     if( type(globalset) ~= "table") then
+        _stream.seterror(ctx,"system error in globalset");
         return -1;
     end
 
@@ -513,12 +516,12 @@ function OnStreamPublished( ctx )
     
     if( _domain_support )
     then
-        if( _domain == domain and _streamapp == streamapp )
+        if( _domain == domain and (_streamapp == streamapp or _gb28181app == streamapp ) )
         then
             matchPlan = true;
         end
     else
-        if( _streamapp == streamapp )
+        if( _streamapp == streamapp or _gb28181app == streamapp )
         then
             matchPlan = true;
         end
@@ -567,6 +570,12 @@ function OnStreamHaveVideoData(ctx)
 
     return 0 ;
 end
+
+-----------------------------------------------------------------------------------
+function OnStreamCommand(ctx , cmd)
+
+
+end
 ----------------------------------------------------------------------------------
 function OnStreamPublishClosed( ctx )
 
@@ -592,12 +601,12 @@ function OnStreamPublishClosed( ctx )
     
     if( _domain_support )
     then
-        if( _domain == domain and _streamapp == streamapp )
+        if( _domain == domain and (_streamapp == streamapp  or _gb28181app == streamapp) )
         then
             matchPlan = true;
         end
     else
-        if( _streamapp == streamapp )
+        if( _streamapp == streamapp or _gb28181app == streamapp )
         then
             matchPlan = true;
         end
@@ -621,12 +630,12 @@ function OnGetSourceStreamURL(domain, streamapp , stream , gb28181id, par ,proto
     
     if( _domain_support )
     then
-        if( _domain == domain and (_streamapp == streamapp or _playback_streamapp == streamapp) )
+        if( _domain == domain and (_streamapp == streamapp or _playback_streamapp == streamapp or _gb28181app == streamapp) )
         then
             matchPlan = true;
         end
     else
-        if( _streamapp == streamapp or _playback_streamapp == streamapp )
+        if( _streamapp == streamapp or _playback_streamapp == streamapp or _gb28181app == streamapp)
         then
             matchPlan = true;
         end
