@@ -21,7 +21,7 @@ OpenNVR简介
 全网络互联，视频融合。
 支持二次开发提供丰富的API调用，为第三方应用提供可靠的视频源。
 
-QQ交流群：737375186  
+QQ交流群：777901741  
 github   https://github.com/WilsonDhChen/opennvr  
 国内下载   https://gitee.com/open-nvr/opennvr  
 
