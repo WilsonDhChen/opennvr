@@ -6,7 +6,7 @@
 #### 基于OpenRTMP构建
 github   https://github.com/WilsonDhChen/OpenRTMP  
 国内下载   https://gitee.com/open-nvr/OpenRTMP  
-
+飞腾，鲲鹏arm版本请直接联系作者  
 #### 介绍
 OpenNVR简介
 
